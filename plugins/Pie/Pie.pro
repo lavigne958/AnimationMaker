@@ -26,7 +26,6 @@ SOURCES      += \
     propertyeditor.cpp \
     commands.cpp
 HEADERS      += \
-    $$PWD/../../Widgets/interfaces.h \
     pieitem.h \
     propertyeditor.h \
     commands.h
@@ -36,6 +35,3 @@ CONFIG(debug, debug|release) {
 
 RESOURCES += \
     images.qrc
-
-LIBS += -L$$OUT_PWD/../../build/ -lWidgets
-INCLUDEPATH += $$PWD/../../Widgets

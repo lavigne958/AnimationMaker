@@ -69,6 +69,7 @@ void TransitionHandleRight::mouseMoveEvent(QMouseEvent *ev)
 
 void TransitionHandleRight::mouseReleaseEvent(QMouseEvent *ev)
 {
+    (void)ev;
     m_pressed = false;
     int newTime = m_key->time();
     m_key->setTime(m_oldTime);

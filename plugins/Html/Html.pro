@@ -17,14 +17,13 @@
 #    along with AnimationMaker.  If not, see <http://www.gnu.org/licenses/>.
 
 QT           += widgets gui core testlib xml svg
-TEMPLATE      = lib
+TEMPLATE     = lib
 CONFIG       += plugin
-TARGET		  = Html
+TARGET       = Html
 INCLUDEPATH  += ../../
 SOURCES      += \
     htmlexport.cpp
 HEADERS      += \
-    $$PWD/../../Widgets/interfaces.h \
     htmlexport.h
 CONFIG(debug, debug|release) {
     DESTDIR = ~/AnimationMaker/plugins
@@ -33,6 +32,3 @@ CONFIG(debug, debug|release) {
 
 DISTFILES += \
     todo.txt
-
-LIBS += -L$$OUT_PWD/../../build/ -lWidgets
-INCLUDEPATH += $$PWD/../../Widgets

@@ -1,15 +1,16 @@
 #include <QtWidgets>
 #include <QtTest/QtTest>
-#include "timeline.h"
-#include "keyframehandle.h"
-#include "transition.h"
-#include "transitionline.h"
-#include "transitionhandleleft.h"
-#include "transitionhandleright.h"
+#include <Widgets/animationscene.h>
+#include <Widgets/timeline.h>
+#include <Widgets/keyframehandle.h>
+#include <Widgets/transition.h>
+#include <Widgets/transitionline.h>
+#include <Widgets/transitionhandleleft.h>
+#include <Widgets/transitionhandleright.h>
 
 namespace QTest
 {
-    inline void myMouseMove(QWidget *widget, QPoint pos = QPoint(), int delay=-1)
+    inline void myMouseMove(QWidget *widget, QPoint pos = QPoint())
     {
         QMouseEvent *ev = new QMouseEvent(QEvent::MouseMove, pos, Qt::LeftButton, Qt::LeftButton, Qt::KeyboardModifiers());
         QSpontaneKeyEvent::setSpontaneous(ev);

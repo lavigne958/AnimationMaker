@@ -96,7 +96,7 @@ private:
     void createAnimationGroup();
     void addTransitionLine(QTreeWidgetItem *tvi, AnimationItem *item);
     void addProperty(QTreeWidgetItem *treeChildItem, AnimationItem *item, QString propertyName);
-    void addPropertyKey(QTreeWidgetItem *treeChildItem, AnimationItem *item, QString propertyName, KeyFrame *key);
+    void addPropertyKey(QTreeWidgetItem *treeChildItem, QString propertyName, KeyFrame *key);
     void propertyKeyRemoved(AnimationItem *item, QString propertyName, KeyFrame *key);
     void transitionResized(KeyFrame *key);
     void transitionMoved(KeyFrame *key);

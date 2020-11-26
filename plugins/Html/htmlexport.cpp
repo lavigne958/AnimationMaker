@@ -19,12 +19,12 @@
 ****************************************************************************/
 
 #include "htmlexport.h"
-#include "animationitem.h"
-#include "animationscene.h"
-#include "bitmap.h"
-#include "ellipse.h"
-#include "text.h"
-#include "vectorgraphic.h"
+#include <Widgets/animationitem.h>
+#include <Widgets/animationscene.h>
+#include <Widgets/bitmap.h>
+#include <Widgets/ellipse.h>
+#include <Widgets/text.h>
+#include <Widgets/vectorgraphic.h>
 #include <QStatusBar>
 #include <QFileDialog>
 #include <QTest>

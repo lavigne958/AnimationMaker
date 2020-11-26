@@ -27,7 +27,7 @@
 **
 ****************************************************************************/
 
-#include "mainwindow.h"
+#include <Widgets/mainwindow.h>
 #include <QApplication>
 #include <QStyleFactory>
 #include <QTest>

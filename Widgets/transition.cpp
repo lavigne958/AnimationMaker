@@ -122,6 +122,7 @@ void Transition::mouseMoveEvent(QMouseEvent *ev)
 
 void Transition::mouseReleaseEvent(QMouseEvent *ev)
 {
+    (void)ev;
     if(m_pressed)
     {
         m_pressed = false;

@@ -27,8 +27,8 @@
 #include <QImage>
 #include <QPixmap>
 #include <QCursor>
-#include "interfaces.h"
-#include "animationitem.h"
+#include <Widgets/interfaces.h>
+#include <Widgets/animationitem.h>
 
 class HtmlExport : public ExportInterface
 {

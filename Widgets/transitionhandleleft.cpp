@@ -91,6 +91,7 @@ void TransitionHandleLeft::mouseMoveEvent(QMouseEvent *ev)
 
 void TransitionHandleLeft::mouseReleaseEvent(QMouseEvent *ev)
 {
+    (void)ev;
     if(m_pressed)
     {
         m_pressed = false;

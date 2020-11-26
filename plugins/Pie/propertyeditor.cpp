@@ -19,10 +19,10 @@
 ****************************************************************************/
 
 #include "propertyeditor.h"
-#include "expander.h"
-#include "flatbutton.h"
+#include <Widgets/expander.h>
+#include <Widgets/flatbutton.h>
 #include "commands.h"
-#include "animationscene.h"
+#include <Widgets/animationscene.h>
 #include "QLabel"
 
 PropertyEditor::PropertyEditor()

@@ -19,7 +19,7 @@
 ****************************************************************************/
 
 #include "commands.h"
-#include "animationscene.h"
+#include <Widgets/animationscene.h>
 
 ChangeStartAngleCommand::ChangeStartAngleCommand(int newValue, int oldValue, AnimationScene *scene, Pie *pie, QUndoCommand *parent)
     : QUndoCommand(parent)

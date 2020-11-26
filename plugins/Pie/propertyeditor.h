@@ -24,7 +24,7 @@
 #include <QWidget>
 #include <QSpinBox>
 #include "pieitem.h"
-#include "propertyeditorinterface.h"
+#include <Widgets/propertyeditorinterface.h>
 
 class PropertyEditor : public PropertyEditorInterface
 {

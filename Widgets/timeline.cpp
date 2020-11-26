@@ -165,7 +165,7 @@ void Timeline::addProperty(QTreeWidgetItem *treeChildItem, AnimationItem *item, 
     connect(line, SIGNAL(transitionSelected(KeyFrame*)), this, SLOT(transitionSelected(KeyFrame*)));
 }
 
-void Timeline::addPropertyKey(QTreeWidgetItem *treeChildItem, AnimationItem *item, QString propertyName, KeyFrame *key)
+void Timeline::addPropertyKey(QTreeWidgetItem *treeChildItem, QString propertyName, KeyFrame *key)
 {
     TransitionLine *line = dynamic_cast<TransitionLine*>(m_tree->itemWidget(treeChildItem, 1));
     line->addKeyframe(propertyName, key);
@@ -549,7 +549,7 @@ void Timeline::addKeyFrame(AnimationItem *item, QString propertyName, KeyFrame *
         QVariant var = treeChildItem->data(0, 1);
         QList<KeyFrame*> *list = (QList<KeyFrame*>*) var.value<void *>();
         list->append(key);
-        addPropertyKey(treeChildItem, item, propertyName, key);
+        addPropertyKey(treeChildItem, propertyName, key);
     }
     else
     {
@@ -561,7 +561,7 @@ void Timeline::addKeyFrame(AnimationItem *item, QString propertyName, KeyFrame *
         treeChildItem->setData(1, 0, 2);
         treeItem->addChild(treeChildItem);
         addProperty(treeChildItem, item, propertyName);
-        addPropertyKey(treeChildItem, item, propertyName, key);
+        addPropertyKey(treeChildItem, propertyName, key);
     }
     treeItem->setExpanded(true);
 }
@@ -591,7 +591,7 @@ void Timeline::keyframeAdded(AnimationItem * item, QString propertyName, KeyFram
         QVariant var = treeChildItem->data(0, 1);
         QList<KeyFrame*> *list = (QList<KeyFrame*>*) var.value<void *>();
         list->append(key);
-        addPropertyKey(treeChildItem, item, propertyName, key);
+        addPropertyKey(treeChildItem, propertyName, key);
     }
     else
     {
@@ -603,7 +603,7 @@ void Timeline::keyframeAdded(AnimationItem * item, QString propertyName, KeyFram
         treeChildItem->setData(1, 0, 2);
         treeItem->addChild(treeChildItem);
         addProperty(treeChildItem, item, propertyName);
-        addPropertyKey(treeChildItem, item, propertyName, key);
+        addPropertyKey(treeChildItem, propertyName, key);
     }
     treeItem->setExpanded(true);
 }

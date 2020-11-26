@@ -18,6 +18,7 @@
 
 QT       += core widgets testlib xml svg
 TARGET = Widgets
+DESTDIR = ../bin
 TEMPLATE = lib
 DEFINES += WIDGETS_LIBRARY
 DEFINES += QT_DEPRECATED_WARNINGS
@@ -74,7 +75,7 @@ HEADERS +=\
     vectorgraphic.h \
     bitmap.h \
     plugins.h \
-    ../interfaces.h \
+    interfaces.h \
     expander.h \
     propertyeditorinterface.h \
     animationitem.h \
@@ -103,4 +104,5 @@ RESOURCES += \
 unix {
     target.path = /usr/lib
     INSTALLS += target
+    OBJECTS_DIR = ../build/
 }

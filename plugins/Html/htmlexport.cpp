@@ -19,7 +19,6 @@
 ****************************************************************************/
 
 #include "htmlexport.h"
-#include "installer.h"
 #include "animationitem.h"
 #include "animationscene.h"
 #include "bitmap.h"
@@ -341,9 +340,9 @@ void HtmlExport::exportAnimation(AnimationScene *scene, QStatusBar *bar)
     dir.cdUp();
 
 #ifdef DEBUG
-    Installer::installFiles("/home/olaf/SourceCode/AnimationMaker/plugins/Html/gsap", dir.absolutePath() + "/assets/js", true, false);
+    // Installer::installFiles("/home/olaf/SourceCode/AnimationMaker/plugins/Html/gsap", dir.absolutePath() + "/assets/js", true, false);
 #else
-    Installer::installFiles(QCoreApplication::applicationDirPath() + "/../../plugins/gsap", dir.absolutePath() + "/assets/js", true, false);
+    // Installer::installFiles(QCoreApplication::applicationDirPath() + "/../../plugins/gsap", dir.absolutePath() + "/assets/js", true, false);
 #endif
     itemList = scene->items(Qt::AscendingOrder);
     bar->showMessage("Exporting animation to " + fileName);

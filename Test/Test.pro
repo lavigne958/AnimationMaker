@@ -19,7 +19,6 @@
 QT += widgets testlib xml svg
 SOURCES = testgui.cpp
 DEFINES += TEST
-LIBS += -L$$OUT_PWD/../Widgets/ -lWidgets
+LIBS += -L$$OUT_PWD/../build/ -lWidgets
 INCLUDEPATH += $$PWD/../Widgets
-DEPENDPATH += $$PWD/../Widgets
 

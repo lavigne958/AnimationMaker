@@ -38,7 +38,6 @@ INSTALLS += target
 SOURCES += main.cpp
 
 linux-g++ {
-    LIBS += -L$$PWD/lib/
     LIBS += -lm
     LIBS += -ldl
 }
@@ -52,6 +51,7 @@ DISTFILES += \
     AppRun \
     README.md
 
-LIBS += -L$$OUT_PWD/Widgets/ -lWidgets
+LIBS += -L$$OUT_PWD/build/ -lWidgets
 INCLUDEPATH += $$PWD/Widgets
-DEPENDPATH += $$PWD/Widgets
+unix:OBJECTS_DIR = build/
+DESTDIR = bin/

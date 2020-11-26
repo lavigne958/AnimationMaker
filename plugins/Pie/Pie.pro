@@ -21,12 +21,12 @@ TEMPLATE      = lib
 CONFIG       += plugin
 TARGET		  = Pie
 INCLUDEPATH  += ../../
-SOURCES		 += \
+SOURCES      += \
     pieitem.cpp \
     propertyeditor.cpp \
     commands.cpp
-HEADERS		 += \
-    ../../interfaces.h \
+HEADERS      += \
+    $$PWD/../../Widgets/interfaces.h \
     pieitem.h \
     propertyeditor.h \
     commands.h
@@ -37,6 +37,5 @@ CONFIG(debug, debug|release) {
 RESOURCES += \
     images.qrc
 
-LIBS += -L$$OUT_PWD/../../Widgets/ -lWidgets
+LIBS += -L$$OUT_PWD/../../build/ -lWidgets
 INCLUDEPATH += $$PWD/../../Widgets
-DEPENDPATH += $$PWD/../../Widgets

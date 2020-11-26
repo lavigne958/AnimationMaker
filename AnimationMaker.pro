@@ -18,9 +18,18 @@
 
 TEMPLATE = subdirs
 
+unix:OBJECTS_DIR = build/
+
 SUBDIRS += \
     Widgets \
     plugins/Pie \
     plugins/Html \
-    App.pro \
-    test/Test.pro
+    App \
+    Test
+
+plugins/Pie.depends = Widgets
+plugins/Html.depends = Widgets
+App.file = App.pro
+App.depends = Widgets
+Test.file = Test/Test.pro
+Test.depends = Widgets

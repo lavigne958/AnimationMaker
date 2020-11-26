@@ -24,7 +24,7 @@ INCLUDEPATH  += ../../
 SOURCES      += \
     htmlexport.cpp
 HEADERS      += \
-    ../../interfaces.h \
+    $$PWD/../../Widgets/interfaces.h \
     htmlexport.h
 CONFIG(debug, debug|release) {
     DESTDIR = ~/AnimationMaker/plugins
@@ -34,6 +34,5 @@ CONFIG(debug, debug|release) {
 DISTFILES += \
     todo.txt
 
-LIBS += -L$$OUT_PWD/../../Widgets/ -lWidgets
+LIBS += -L$$OUT_PWD/../../build/ -lWidgets
 INCLUDEPATH += $$PWD/../../Widgets
-DEPENDPATH += $$PWD/../../Widgets

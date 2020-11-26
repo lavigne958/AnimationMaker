@@ -1,0 +1,12 @@
+# C/CPP generated files
+*.o
+*.a
+*.so*
+
+# Qt generated files
+moc_*
+qrc_*
+Makefile*
+*.stash
+*.pro.user
+*.moc

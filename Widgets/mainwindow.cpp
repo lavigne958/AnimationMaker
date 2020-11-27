@@ -290,8 +290,8 @@ void MainWindow::createGui()
     connect(m_rectangleAct, SIGNAL(triggered()), this, SLOT(setRectangleMode()));
     connect(m_ellipseAct, SIGNAL(triggered()), this, SLOT(setEllipseMode()));
     connect(m_textAct, SIGNAL(triggered()), this, SLOT(setTextMode()));
-    connect(m_bitmapAct, SIGNAL(triggered()), this, SLOT(setBitmapMode()));
-    connect(m_svgAct, SIGNAL(triggered()), this, SLOT(setSvgMode()));
+    connect(m_bitmapAct, SIGNAL(triggered()), this, SLOT(loadNewBitmap()));
+    connect(m_svgAct, SIGNAL(triggered()), this, SLOT(loadNewSvg()));
 
     toolpanel->addAction(m_selectAct);
     toolpanel->addAction(m_rectangleAct);
@@ -616,18 +616,46 @@ void MainWindow::setTextMode()
     m_scene->setEditMode(AnimationScene::EditMode::ModeText);
 }
 
-void MainWindow::setBitmapMode()
+void MainWindow::addNewImage(AnimationScene::EditMode mode)
 {
-    m_scene->clearSelection();
-    m_scene->setCursor(QCursor(QPixmap::fromImage(QImage(":/images/bitmap_cursor.png"))));
-    m_scene->setEditMode(AnimationScene::EditMode::ModeBitmap);
+    QString fileName;
+    QString filter;
+    QString title;
+    if(mode == AnimationScene::EditMode::ModeBitmap)
+    {
+        filter = "Image Files (*.png *.jpeg *.jpg *.gif *.bmp);;All Files (*)";
+        title = "Open Bitmap";
+    }
+    else if(mode == AnimationScene::EditMode::ModeSvg)
+    {
+        filter = "SVG Files (*.svg);;All Files (*)";
+        title = "Open SVG";
+    }
+    if(!filter.isEmpty())
+    {
+        QFileDialog *dialog = new QFileDialog();
+        dialog->setFileMode(QFileDialog::AnyFile);
+        dialog->setNameFilter(filter);
+        dialog->setWindowTitle(title);
+        dialog->setOption(QFileDialog::DontUseNativeDialog, true);
+        dialog->setAcceptMode(QFileDialog::AcceptOpen);
+        if(dialog->exec())
+            fileName = dialog->selectedFiles().first();
+        delete dialog;
+        if(fileName.isEmpty())
+            return;
+        this->m_scene->addNewImage(fileName, mode);
+    }
 }
 
-void MainWindow::setSvgMode()
+void MainWindow::loadNewBitmap()
 {
-    m_scene->clearSelection();
-    m_scene->setCursor(QCursor(QPixmap::fromImage(QImage(":/images/svg_cursor.png"))));
-    m_scene->setEditMode(AnimationScene::EditMode::ModeSvg);
+    addNewImage(AnimationScene::ModeBitmap);
+}
+
+void MainWindow::loadNewSvg()
+{
+    addNewImage(AnimationScene::ModeSvg);
 }
 
 void MainWindow::setPluginMode()

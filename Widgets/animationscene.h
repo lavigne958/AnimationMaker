@@ -53,6 +53,7 @@ public:
     void setEditMode(EditMode mode);
     void setEditMode(QString pluginName);
     void setFileVersion(int version) {m_fileVersion = version;}
+    void addNewImage(QString filename, EditMode mode);
 
     int fps() const;
     inline void setFps(int value) {m_fps = value;}

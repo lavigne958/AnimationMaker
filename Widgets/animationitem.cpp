@@ -97,6 +97,7 @@ AnimationItem::~AnimationItem()
     delete sendToBackAct;
     delete raiseAct;
     delete lowerAct;
+    delete m_contextMenu;
     if(m_hasHandles)
     {
         for(int i = 0; i < 8; i++)

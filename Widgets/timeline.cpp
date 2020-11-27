@@ -59,22 +59,22 @@ Timeline::Timeline(AnimationScene *scene)
     m_time = new QLabel();
     m_time->setText("0:00.0");
 
-    QAction *playAct = new QAction("Play");
+    playAct = new QAction("Play");
     playAct->setIcon(QIcon(":/images/play.png"));
     playAct->setToolTip("Start the animation");
     connect(playAct, SIGNAL(triggered()), this, SLOT(playAnimation()));
 
-    QAction *pauseAct = new QAction("Pause");
+    pauseAct = new QAction("Pause");
     pauseAct->setIcon(QIcon(":/images/pause.png"));
     pauseAct->setToolTip("Pause the animation");
     connect(pauseAct, SIGNAL(triggered()), this, SLOT(pauseAnimation()));
 
-    QAction *reverseAct = new QAction("Reverse");
+    reverseAct = new QAction("Reverse");
     reverseAct->setIcon(QIcon(":/images/reverse.png"));
     reverseAct->setToolTip("Reverse the animation");
     connect(reverseAct, SIGNAL(triggered()), this, SLOT(revertAnimation()));
 
-    QAction *forwardAct = new QAction("Forward");
+    forwardAct = new QAction("Forward");
     forwardAct->setIcon(QIcon(":/images/forward.png"));
     forwardAct->setToolTip("Forward the animation");
     connect(forwardAct, SIGNAL(triggered()), this, SLOT(forwardAnimation()));
@@ -124,6 +124,16 @@ Timeline::Timeline(AnimationScene *scene)
     connect(m_tree, SIGNAL(currentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)), this, SLOT(treeCurrentItemChanged(QTreeWidgetItem*,QTreeWidgetItem*)));
     connect(m_playhead, SIGNAL(valueChanged(int)), scene, SLOT(setPlayheadPosition(int)));
     connect(m_scene, SIGNAL(keyframeAdded(AnimationItem*, QString, KeyFrame*)), this, SLOT(keyframeAdded(AnimationItem*, QString, KeyFrame*)));
+}
+
+Timeline::~Timeline()
+{
+    delete m_delAct;
+    delete m_contextMenu;
+    delete pauseAct;
+    delete forwardAct;
+    delete reverseAct;
+    delete playAct;
 }
 
 void Timeline::scrollValueChanged(int value)

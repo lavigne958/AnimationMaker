@@ -64,6 +64,11 @@ MainWindow::~MainWindow()
     delete m_timeline;
     delete m_elementTree;
     delete m_view;
+    delete showToolPanelAct;
+    delete showElementsAct;
+    delete showPropertyPanelAct;
+    delete showRulerAct;
+    delete importMenu;
 }
 
 void MainWindow::loadPlugins()
@@ -532,9 +537,6 @@ void MainWindow::createMenus()
     importMenu = new QMenu(tr("Import"));
     importMenu->setEnabled(false);
 
-    exportMenu = new QMenu(tr("Export"));
-    exportMenu->setEnabled(false);
-
     fileMenu = menuBar()->addMenu(tr("&File"));
     fileMenu->addAction(newAct);
     fileMenu->addAction(openAct);
@@ -542,7 +544,7 @@ void MainWindow::createMenus()
     fileMenu->addAction(saveAsAct);
     fileMenu->addAction(saveItemAsAct);
     fileMenu->addSeparator();
-    QMenu *exportMenu = fileMenu->addMenu("Export");
+    exportMenu = fileMenu->addMenu("Export");
     exportMenu->addAction(exportMovieAct);
     foreach(QString pluginName, Plugins::exportPluginNames())
     {

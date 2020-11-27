@@ -33,6 +33,8 @@ public:
     Bitmap(QString filename, AnimationScene *scene);
     Bitmap(QImage img, AnimationScene *scene);
 
+    ~Bitmap();
+
     void paint( QPainter *paint, const QStyleOptionGraphicsItem *, QWidget *);
     QString getHtml(QString id, QString assetsPath) Q_DECL_OVERRIDE;
     QImage getImage();
@@ -49,6 +51,7 @@ private slots:
 
 private:
     QImage m_image;
+    QAction *exchangeBitmapAct;
 
     void addMenu();
 };

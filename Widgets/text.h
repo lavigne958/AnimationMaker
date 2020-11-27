@@ -38,6 +38,7 @@ class WIDGETSSHARED_EXPORT Text : public AnimationItem
 
 public:
     Text(QString text, AnimationScene *scene);
+    ~Text();
 
     void paint( QPainter *paint, const QStyleOptionGraphicsItem *, QWidget *) Q_DECL_OVERRIDE;
     void scaleObjects() Q_DECL_OVERRIDE;

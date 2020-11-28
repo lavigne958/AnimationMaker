@@ -1,3 +1,57 @@
+# Personal note
+
+I found this project while looking for a simple but accurate animation tool maker.
+I noticed some glitches and some bugfix, the project seems abandoned for some years.
+I decided to take care of this baby, it is powerful, it well done, it does the job
+very well, but it needs a refresh ;-)
+
+# Build
+
+You have 2 options to build the software: using QtCreator, doing it manually
+
+## Using QtCreator
+
+First download ans setup [QtCreator](https://www.qt.io/product/development-tools).
+Once QtCreator is installed and running:
+
+1. Open the project `AnimationMaker.pro`
+2. Choose/configure your build kit (Qt version you want to use, compiler, ...)
+3. Build the project
+    - do a right click on the project tree and choose build (or run)
+    - click on the build (or run) Icon on the bottom left (position might change)
+
+## Manual build
+First download Qt packages library and their respective development version using your package manager.
+
+_If you installed QtCreator you don't need to install manual packages you can already build the software manualy you already have all the tools._
+
+for debian/ubuntu/linuxmint
+```
+sudo apt install qtbase5-dev build-essential
+```
+
+for fedora/centos:
+```
+sudo yum install make qt5-qtbase-devel qt5-qtsvg-devel
+```
+
+Once all packages are installed you can start building the software
+
+1. go to a dierctory where you want all the generated file to be located
+2. Use qmake to generate the makefiles
+3. build the softwre
+4. The generated software is here `build_folder/bin/AnimationMaker`
+
+```
+cd /path/to/repositoty
+mkdir build
+cd build
+qmake ../AnimationMaker.pro
+make -j4
+```
+
+Done! now you can find you newly built AnimationMaker under `/bin/` folder
+
 # AnimationMaker
 
 ![Image](AnimationMaker.png) 
@@ -10,11 +64,4 @@ See a video to see basic usage at [youtube](https://youtu.be/Ir7Lvd-O2aE).
 Also see a video of the newest features [youtube](https://youtu.be/pa53WfUkbO0).
 
 ## Contact
-If you have any feature requests then just send me an email with your ideas to artanidos@gmail.com
-
-## Donations
-If you like to support my work on the AnimationMaker you are invited to become a patron.
-[Patreon](https://www.patreon.com/artananda)
-
-
-
+The original author of the project: artanidos@gmail.com

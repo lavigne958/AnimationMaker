@@ -15,6 +15,7 @@ namespace QTest
         QMouseEvent *ev = new QMouseEvent(QEvent::MouseMove, pos, Qt::LeftButton, Qt::LeftButton, Qt::KeyboardModifiers());
         QSpontaneKeyEvent::setSpontaneous(ev);
         qApp->notify(widget, ev);
+        delete ev;
     }
 }
 

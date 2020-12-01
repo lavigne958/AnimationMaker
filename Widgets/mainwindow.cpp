@@ -69,6 +69,7 @@ MainWindow::~MainWindow()
     delete showPropertyPanelAct;
     delete showRulerAct;
     delete importMenu;
+    delete m_undoStack;
 }
 
 void MainWindow::loadPlugins()

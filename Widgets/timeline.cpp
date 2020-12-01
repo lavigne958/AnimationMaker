@@ -134,6 +134,19 @@ Timeline::~Timeline()
     delete forwardAct;
     delete reverseAct;
     delete playAct;
+
+    for (int i = 0; i < m_tree->topLevelItemCount(); ++i) {
+        QTreeWidgetItem *item = m_tree->topLevelItem(i);
+
+        for (int j = 0; j < item->childCount(); ++j) {
+            QTreeWidgetItem *child = item->child(j);
+            QVariant data = child->data(0, Qt::DecorationRole);
+            QList<KeyFrame *> *list = (QList<KeyFrame *> *)data.value<void *>();
+            delete list;
+        }
+    }
+
+    delete m_tree;
 }
 
 void Timeline::scrollValueChanged(int value)

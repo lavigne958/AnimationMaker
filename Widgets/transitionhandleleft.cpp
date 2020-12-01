@@ -39,6 +39,12 @@ TransitionHandleLeft::TransitionHandleLeft(Transition *parent, KeyFrame *key)
     setContextMenuPolicy(Qt::CustomContextMenu);
 }
 
+TransitionHandleLeft::~TransitionHandleLeft()
+{
+    delete m_transitionAct;
+    delete m_contextMenu;
+}
+
 void TransitionHandleLeft::onCustomContextMenu(const QPoint &point)
 {
     m_contextMenu->clear();

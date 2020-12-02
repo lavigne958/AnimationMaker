@@ -30,10 +30,11 @@
 #include <QFileDialog>
 #include <QUndoStack>
 #include <QDomDocument>
-#include "rectangle.h"
 
+#include "keyframe.h"
+
+class Rectangle;
 class AnimationItem;
-class KeyFrame;
 class AnimationScene : public QGraphicsScene
 {
     Q_OBJECT
@@ -57,21 +58,17 @@ public:
     int fps() const;
     inline void setFps(int value) {m_fps = value;}
 
-    inline void setWidth(int value) {setSceneRect(0, 0, value, height()); m_rect->setRect(0,0,value, height()); emit sizeChanged(value, height());}
-    inline void setHeight(int value) {setSceneRect(0, 0, width(), value); m_rect->setRect(0,0,width(), value); emit sizeChanged(width(), value);}
+    void setWidth(int value);
+    void setHeight(int value);
 
     inline QColor backgroundColor() const {return m_backgroundColor;}
-    inline void setBackgroundColor(QColor value)
-    {
-        m_backgroundColor = value;
-        m_rect->setBrush(QBrush(QColor(m_backgroundColor)));
-        emit backgroundColorChanged(value);
-    }
+    void setBackgroundColor(QColor value);
+
     Rectangle *backgroundRect() {return m_rect;}
 
     inline int playheadPosition() {return m_playheadPosition;}
 
-    void setCursor(const QCursor &cursor) {m_rect->setCursor(cursor);}
+    void setCursor(const QCursor &cursor);
     void copyItem();
     void pasteItem();
 

@@ -17,6 +17,10 @@
 **  along with AnimationMaker.  If not, see <http://www.gnu.org/licenses/>.
 **
 ****************************************************************************/
+#include <QUndoCommand>
+#include <QBuffer>
+#include <QMessageBox>
+
 
 #include "animationscene.h"
 #include "animationitem.h"
@@ -27,9 +31,7 @@
 #include "vectorgraphic.h"
 #include "keyframe.h"
 #include "commands.h"
-#include <QUndoCommand>
-#include <QBuffer>
-#include <QMessageBox>
+#include "rectangle.h"
 
 AnimationScene::AnimationScene()
 {
@@ -745,6 +747,36 @@ void AnimationScene::setPlayheadPosition(int playheadPosition)
             }
         }
     }
+}
+
+void
+AnimationScene::setWidth(int value)
+{
+    setSceneRect(0, 0, value, height());
+    m_rect->setRect(0,0,value, height());
+    emit sizeChanged(value, height());
+}
+
+void
+AnimationScene::setHeight(int value)
+{
+    setSceneRect(0, 0, width(), value);
+    m_rect->setRect(0,0,width(), value);
+    emit sizeChanged(width(), value);
+}
+
+void
+AnimationScene::setBackgroundColor(QColor color)
+{
+    m_backgroundColor = color;
+    m_rect->setBrush(QBrush(QColor(m_backgroundColor)));
+    emit backgroundColorChanged(color);
+}
+
+void
+AnimationScene::setCursor(const QCursor &cursor)
+{
+    m_rect->setCursor(cursor);
 }
 
 qreal getProgressValue(KeyFrame *found, int playheadPosition)

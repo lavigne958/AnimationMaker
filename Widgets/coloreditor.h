@@ -25,10 +25,11 @@
 #include <QSpinBox>
 #include <QLabel>
 #include <QLineEdit>
+
 #include "colorpicker.h"
 #include "colorrect.h"
+#include "flatbutton.h"
 
-class FlatButton;
 class ColorEditor : public QWidget
 {
     Q_OBJECT

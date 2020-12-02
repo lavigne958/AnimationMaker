@@ -22,14 +22,14 @@
 #define TRANSITION_H
 
 #include <QWidget>
+#include <QUndoStack>
+#include <QMenu>
+
+#include "keyframe.h"
+#include "timeline.h"
+#include "transitionhandle.h"
 
 class TransitionLine;
-class KeyFrame;
-class TransitionHandleLeft;
-class TransitionHandleRight;
-class Timeline;
-class QUndoStack;
-class QMenu;
 class Transition : public QWidget
 {
     Q_OBJECT
@@ -47,8 +47,8 @@ public:
     void resizeTransition();
 
 #ifdef TEST
-    TransitionHandleLeft *getLeftHandle() {return m_left;}
-    TransitionHandleRight *getRightHandle() {return m_right;}
+    TransitionHandle *getLeftHandle() {return m_left;}
+    TransitionHandle *getRightHandle() {return m_right;}
 #endif
 protected:
     void keyPressEvent(QKeyEvent *e) Q_DECL_OVERRIDE;
@@ -68,8 +68,8 @@ private slots:
 private:
     KeyFrame *m_key;
     bool m_pressed;
-    TransitionHandleLeft *m_left;
-    TransitionHandleRight *m_right;
+    TransitionHandle *m_left;
+    TransitionHandle *m_right;
     int m_oldX;
     QMenu *m_contextMenu;
     QAction *m_transitionAct;

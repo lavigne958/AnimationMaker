@@ -23,13 +23,14 @@
 
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
+#include <QGraphicsSvgItem>
+#include <QSvgRenderer>
 #include <QColor>
 #include <QFont>
-#include "animationitem.h"
 
-class AnimationScene;
-class QGraphicsSvgItem;
-class QSvgRenderer;
+#include "animationitem.h"
+#include "animationscene.h"
+
 class Text : public AnimationItem
 {
     Q_OBJECT

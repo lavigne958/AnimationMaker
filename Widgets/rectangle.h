@@ -23,7 +23,9 @@
 
 #include <QGraphicsItem>
 #include <QObject>
+
 #include "animationitem.h"
+#include "animationscene.h"
 
 class Rectangle : public AnimationItem
 {

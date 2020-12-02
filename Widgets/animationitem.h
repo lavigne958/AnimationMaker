@@ -27,10 +27,11 @@
 #include <QList>
 #include <QDomElement>
 #include <QTest>
+
+#include "animationscene.h"
 #include "itemhandle.h"
 #include "keyframe.h"
 
-class AnimationScene;
 class PropertyEditorInterface;
 class AnimationItem : public QObject, public QGraphicsItem
 {

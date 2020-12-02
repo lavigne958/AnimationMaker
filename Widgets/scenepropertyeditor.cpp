@@ -18,6 +18,8 @@
 **
 ****************************************************************************/
 
+#include "animationitem.h"
+#include "rectangle.h"
 #include "scenepropertyeditor.h"
 #include "expander.h"
 #include "commands.h"

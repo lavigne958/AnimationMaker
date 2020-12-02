@@ -23,6 +23,9 @@
 
 #include <QGraphicsView>
 
+#include "animationscene.h"
+#include "ruler.h"
+
 class AnimationScene;
 class Ruler;
 class SceneView : public QGraphicsView

@@ -21,12 +21,13 @@
 #ifndef VECTORGRAPHIC_H
 #define VECTORGRAPHIC_H
 
+#include <QDomElement>
 #include <QGraphicsItem>
 #include <QGraphicsSvgItem>
-#include "animationitem.h"
 
-class AnimationScene;
-class QDomElement;
+#include "animationitem.h"
+#include "animationscene.h"
+
 class Vectorgraphic : public AnimationItem
 {
     Q_OBJECT

@@ -23,10 +23,8 @@
 
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
+#include <QTextDocument>
 
-QT_BEGIN_NAMESPACE
-class QTextDocument;
-QT_END_NAMESPACE
 
 class XmlHighlighter : public QSyntaxHighlighter
 {

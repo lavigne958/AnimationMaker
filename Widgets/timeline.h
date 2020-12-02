@@ -26,6 +26,7 @@
 #include <QLabel>
 #include <QToolButton>
 #include <QPropertyAnimation>
+
 #include "animationitem.h"
 #include "animationscene.h"
 #include "playhead.h"

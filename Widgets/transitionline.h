@@ -21,13 +21,15 @@
 #ifndef TRANSITIONLINE_H
 #define TRANSITIONLINE_H
 
+#include <QUndoStack>
 #include <QWidget>
-#include "animationitem.h"
 
-class KeyframeHandle;
-class Transition;
-class QUndoStack;
-class Timeline;
+#include "animationitem.h"
+#include "animationscene.h"
+#include "keyframehandle.h"
+#include "timeline.h"
+#include "transition.h"
+
 class TransitionLine : public QWidget
 {
     Q_OBJECT

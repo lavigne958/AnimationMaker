@@ -21,7 +21,9 @@
 #ifndef PLUGINS_H
 #define PLUGINS_H
 
+#include <QList>
 #include <QMap>
+#include <QString>
 #include "interfaces.h"
 
 class Plugins

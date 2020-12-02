@@ -22,6 +22,7 @@
 #define BITMAP_H
 
 #include <QGraphicsItem>
+
 #include "animationitem.h"
 
 class Bitmap : public AnimationItem

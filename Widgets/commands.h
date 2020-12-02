@@ -22,6 +22,7 @@
 #define COMMANDS_H
 
 #include <QUndoCommand>
+
 #include "animationscene.h"
 #include "animationitem.h"
 #include "vectorgraphic.h"

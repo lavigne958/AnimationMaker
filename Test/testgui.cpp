@@ -3,6 +3,7 @@
 #include <Widgets/animationscene.h>
 #include <Widgets/timeline.h>
 #include <Widgets/keyframehandle.h>
+#include <Widgets/rectangle.h>
 #include <Widgets/transition.h>
 #include <Widgets/transitionline.h>
 #include <Widgets/transitionhandleleft.h>
@@ -421,7 +422,7 @@ void TestGui::testTransitionHandleLeft()
 
     TransitionLine *tl = m_timeline->getTransitionLine(item, "left");
     Transition *tr = tl->getTransition(keya);
-    TransitionHandleLeft *thl = tr->getLeftHandle();
+    TransitionHandleLeft *thl = dynamic_cast<TransitionHandleLeft *>(tr->getLeftHandle());
     events.simulate(thl);
 
     QCOMPARE(keya->time(), expected);
@@ -491,7 +492,7 @@ void TestGui::testTransitionHandleRight()
 
     TransitionLine *tl = m_timeline->getTransitionLine(item, "left");
     Transition *tr = tl->getTransition(keya);
-    TransitionHandleRight *thr = tr->getRightHandle();
+    TransitionHandleRight *thr = dynamic_cast<TransitionHandleRight *>(tr->getRightHandle());
     events.simulate(thr);
 
     QCOMPARE(keyb->time(), expected);
@@ -519,7 +520,7 @@ void TestGui::testTransitionHandleLeftMouse()
 
     TransitionLine *tl = m_timeline->getTransitionLine(item, "left");
     Transition *tr = tl->getTransition(keya);
-    TransitionHandleLeft *thl = tr->getLeftHandle();
+    TransitionHandleLeft *thl = dynamic_cast<TransitionHandleLeft *>(tr->getLeftHandle());
 
     QTest::mousePress(thl, Qt::LeftButton, Qt::KeyboardModifiers(), QPoint(0,0));
     QTest::myMouseMove(thl, QPoint(20, 0));
@@ -610,7 +611,7 @@ void TestGui::testTransitionHandleRightMouse()
 
     TransitionLine *tl = m_timeline->getTransitionLine(item, "left");
     Transition *tr = tl->getTransition(keya);
-    TransitionHandleRight *thr = tr->getRightHandle();
+    TransitionHandleRight *thr = dynamic_cast<TransitionHandleRight *>(tr->getRightHandle());
 
     QTest::mousePress(thr, Qt::LeftButton, Qt::KeyboardModifiers(), QPoint(0,0));
     QTest::myMouseMove(thr, QPoint(20, 0));
@@ -788,8 +789,8 @@ void TestGui::testDoubleTransition()
     TransitionLine *tl = m_timeline->getTransitionLine(item, "left");
     Transition *trl = tl->getTransition(keya);
     Transition *trr = tl->getTransition(keyb);
-    TransitionHandleLeft *thl = trr->getLeftHandle();
-    TransitionHandleRight *thr = trl->getRightHandle();
+    TransitionHandleLeft *thl = dynamic_cast<TransitionHandleLeft *>(trr->getLeftHandle());
+    TransitionHandleRight *thr = dynamic_cast<TransitionHandleRight *>(trl->getRightHandle());
 
     QTest::mousePress(trl, Qt::LeftButton, Qt::KeyboardModifiers(), QPoint(20,0));
     QTest::myMouseMove(trl, QPoint(40, 0));

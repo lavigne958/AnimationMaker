@@ -23,9 +23,10 @@
 
 #include <QGraphicsItem>
 #include <QObject>
-#include "animationitem.h"
 
-class AnimationScene;
+#include "animationitem.h"
+#include "animationscene.h"
+
 class Ellipse : public AnimationItem
 {
     Q_OBJECT

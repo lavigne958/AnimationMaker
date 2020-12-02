@@ -25,28 +25,23 @@
 #include <QFileInfo>
 #include <QDir>
 #include <QDomDocument>
+#include <QString>
+#include <QSplitter>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
+#include <QUndoStack>
+#include <QGraphicsItem>
+#include <QActionGroup>
 
-#include <Widgets/animationscene.h>
+#include "animationscene.h"
 #include "animationitem.h"
+#include "itempropertyeditor.h"
+#include "keyframe.h"
+#include "sceneview.h"
+#include "scenepropertyeditor.h"
+#include "timeline.h"
+#include "transitioneditor.h"
 
-class String;
-class AnimationScene;
-class Timeline;
-class ItemPropertyEditor;
-class ScenePropertyEditor;
-class TransitionEditor;
-class KeyFrame;
-class QSplitter;
-class QTreeWidget;
-class SceneView;
-class QTreeWidgetItem;
-class QUndoStack;
-class QGraphicsItem;
-class QActionGroup;
-class QTextBrowser;
-class QNetworkReply;
-class QSplitter;
-class QProcess;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -73,7 +68,6 @@ protected:
     void addCheckboxes(QTreeWidgetItem *treeItem, AnimationItem *item);
     void addNewImage(AnimationScene::EditMode mode);
 
-    QProcess *m_proc;
     QString m_url;
     QString m_err;
     QSplitter *m_splitter;

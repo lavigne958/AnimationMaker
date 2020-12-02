@@ -21,9 +21,12 @@
 #ifndef SCENEPROPERTYEDITOR_H
 #define SCENEPROPERTYEDITOR_H
 
+#include <QColor>
 #include <QSpinBox>
 #include <QLineEdit>
 #include <QLabel>
+#include <QSpinBox>
+#include <QVariant>
 
 #include "animationscene.h"
 #include "colorpicker.h"

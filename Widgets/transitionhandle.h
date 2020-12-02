@@ -23,8 +23,9 @@
 
 #include <QWidget>
 
+#include "keyframe.h"
+
 class Transition;
-class KeyFrame;
 class TransitionHandle : public QWidget
 {
     Q_OBJECT

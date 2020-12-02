@@ -21,12 +21,13 @@
 #ifndef KEYFRAMEHANDLE_H
 #define KEYFRAMEHANDLE_H
 
+#include <QMenu>
 #include <QWidget>
 
-class QMenu;
+#include "animationitem.h"
+#include "keyframe.h"
+
 class TransitionLine;
-class KeyFrame;
-class AnimationItem;
 class KeyframeHandle : public QWidget
 {
     Q_OBJECT

@@ -25,9 +25,8 @@
 #include <QVBoxLayout>
 #include <QToolButton>
 #include <QScrollArea>
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT Expander : public QWidget
+class Expander : public QWidget
 {
     Q_OBJECT
 public:

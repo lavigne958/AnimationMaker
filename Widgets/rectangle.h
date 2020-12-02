@@ -24,9 +24,8 @@
 #include <QGraphicsItem>
 #include <QObject>
 #include "animationitem.h"
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT Rectangle : public AnimationItem
+class Rectangle : public AnimationItem
 {
     Q_OBJECT
 public:

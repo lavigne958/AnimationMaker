@@ -23,9 +23,8 @@
 
 #include <QMap>
 #include "interfaces.h"
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT Plugins
+class Plugins
 {
 public:
     static ItemInterface *getItemPlugin(QString name);

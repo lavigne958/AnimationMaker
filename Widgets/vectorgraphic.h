@@ -24,11 +24,10 @@
 #include <QGraphicsItem>
 #include <QGraphicsSvgItem>
 #include "animationitem.h"
-#include "widgets_global.h"
 
 class AnimationScene;
 class QDomElement;
-class WIDGETSSHARED_EXPORT Vectorgraphic : public AnimationItem
+class Vectorgraphic : public AnimationItem
 {
     Q_OBJECT
 public:

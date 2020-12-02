@@ -24,10 +24,9 @@
 #include <QGraphicsItem>
 #include <QObject>
 #include "animationitem.h"
-#include "widgets_global.h"
 
 class AnimationScene;
-class WIDGETSSHARED_EXPORT Ellipse : public AnimationItem
+class Ellipse : public AnimationItem
 {
     Q_OBJECT
 public:

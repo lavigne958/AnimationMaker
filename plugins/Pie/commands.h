@@ -23,7 +23,6 @@
 
 #include <QUndoCommand>
 #include "pieitem.h"
-#include <Widgets/widgets_global.h>
 
 class ChangeStartAngleCommand : public QUndoCommand
 {

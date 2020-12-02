@@ -32,10 +32,9 @@
 #include <QPainter>
 #include <QPen>
 #include <QPointF>
-#include "widgets_global.h"
 
 class AnimationItem;
-class WIDGETSSHARED_EXPORT ItemHandle : public QGraphicsItem
+class ItemHandle : public QGraphicsItem
 {
 public:
     explicit ItemHandle(AnimationItem *parent, int corner = 0, int scaling = 1);

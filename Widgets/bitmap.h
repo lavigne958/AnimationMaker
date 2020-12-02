@@ -23,9 +23,8 @@
 
 #include <QGraphicsItem>
 #include "animationitem.h"
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT Bitmap : public AnimationItem
+class Bitmap : public AnimationItem
 {
     Q_OBJECT
 public:

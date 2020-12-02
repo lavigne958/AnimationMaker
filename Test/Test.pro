@@ -55,7 +55,6 @@ SOURCES += \
     ../Widgets/ruler.cpp
 
 HEADERS += \
-        ../Widgets/widgets_global.h \
         ../Widgets/flatbutton.h \
         ../Widgets/itemhandle.h \
         ../Widgets/keyframe.h \

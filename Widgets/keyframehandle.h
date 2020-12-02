@@ -23,13 +23,11 @@
 
 #include <QWidget>
 
-#include "widgets_global.h"
-
 class QMenu;
 class TransitionLine;
 class KeyFrame;
 class AnimationItem;
-class WIDGETSSHARED_EXPORT KeyframeHandle : public QWidget
+class KeyframeHandle : public QWidget
 {
     Q_OBJECT
 public:

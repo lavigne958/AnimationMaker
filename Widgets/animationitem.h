@@ -29,11 +29,10 @@
 #include <QTest>
 #include "itemhandle.h"
 #include "keyframe.h"
-#include "widgets_global.h"
 
 class AnimationScene;
 class PropertyEditorInterface;
-class WIDGETSSHARED_EXPORT AnimationItem : public QObject, public QGraphicsItem
+class AnimationItem : public QObject, public QGraphicsItem
 {
     Q_OBJECT
     Q_PROPERTY(qreal left READ left WRITE setX)

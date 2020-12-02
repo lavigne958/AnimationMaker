@@ -27,10 +27,9 @@
 #include <QLineEdit>
 #include "colorpicker.h"
 #include "colorrect.h"
-#include "widgets_global.h"
 
 class FlatButton;
-class WIDGETSSHARED_EXPORT ColorEditor : public QWidget
+class ColorEditor : public QWidget
 {
     Q_OBJECT
 public:

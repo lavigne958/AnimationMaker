@@ -26,12 +26,11 @@
 #include <QColor>
 #include <QFont>
 #include "animationitem.h"
-#include "widgets_global.h"
 
 class AnimationScene;
 class QGraphicsSvgItem;
 class QSvgRenderer;
-class WIDGETSSHARED_EXPORT Text : public AnimationItem
+class Text : public AnimationItem
 {
     Q_OBJECT
     Q_PROPERTY(QColor textColor READ textColor WRITE setTextColor)

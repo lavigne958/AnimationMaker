@@ -31,11 +31,10 @@
 #include <QUndoStack>
 #include <QDomDocument>
 #include "rectangle.h"
-#include "widgets_global.h"
 
 class AnimationItem;
 class KeyFrame;
-class WIDGETSSHARED_EXPORT AnimationScene : public QGraphicsScene
+class AnimationScene : public QGraphicsScene
 {
     Q_OBJECT
     Q_PROPERTY(int fps READ fps)

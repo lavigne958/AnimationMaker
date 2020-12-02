@@ -22,9 +22,8 @@
 #define FLATBUTTON_H
 
 #include <QLabel>
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT FlatButton : public QLabel
+class FlatButton : public QLabel
 {
     Q_OBJECT
 

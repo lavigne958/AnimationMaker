@@ -29,10 +29,9 @@
 #include "animationitem.h"
 #include "animationscene.h"
 #include "playhead.h"
-#include "widgets_global.h"
 
 class TransitionLine;
-class WIDGETSSHARED_EXPORT Timeline : public QWidget
+class Timeline : public QWidget
 {
     Q_OBJECT
 public:

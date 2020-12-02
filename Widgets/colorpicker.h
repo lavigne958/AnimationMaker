@@ -23,9 +23,8 @@
 
 #include <QWidget>
 #include <QSlider>
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT ColorPicker : public QWidget
+class ColorPicker : public QWidget
 {
     Q_OBJECT
 public:

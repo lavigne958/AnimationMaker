@@ -23,13 +23,12 @@
 
 #include <QSyntaxHighlighter>
 #include <QTextCharFormat>
-#include "widgets_global.h"
 
 QT_BEGIN_NAMESPACE
 class QTextDocument;
 QT_END_NAMESPACE
 
-class WIDGETSSHARED_EXPORT XmlHighlighter : public QSyntaxHighlighter
+class XmlHighlighter : public QSyntaxHighlighter
 {
     Q_OBJECT
 

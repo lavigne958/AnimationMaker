@@ -22,9 +22,8 @@
 #define COLORRECT_H
 
 #include <QWidget>
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT ColorRect : public QWidget
+class ColorRect : public QWidget
 {
     Q_OBJECT
 public:

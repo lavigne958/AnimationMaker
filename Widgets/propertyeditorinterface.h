@@ -23,9 +23,8 @@
 
 #include <QWidget>
 #include "animationitem.h"
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT PropertyEditorInterface : public QWidget
+class PropertyEditorInterface : public QWidget
 {
     Q_OBJECT
 

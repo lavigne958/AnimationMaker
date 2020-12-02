@@ -23,13 +23,12 @@
 
 #include <QWidget>
 #include "animationitem.h"
-#include "widgets_global.h"
 
 class KeyframeHandle;
 class Transition;
 class QUndoStack;
 class Timeline;
-class WIDGETSSHARED_EXPORT TransitionLine : public QWidget
+class TransitionLine : public QWidget
 {
     Q_OBJECT
 public:

@@ -22,7 +22,6 @@
 #define TRANSITION_H
 
 #include <QWidget>
-#include "widgets_global.h"
 
 class TransitionLine;
 class KeyFrame;
@@ -31,7 +30,7 @@ class TransitionHandleRight;
 class Timeline;
 class QUndoStack;
 class QMenu;
-class WIDGETSSHARED_EXPORT Transition : public QWidget
+class Transition : public QWidget
 {
     Q_OBJECT
 public:

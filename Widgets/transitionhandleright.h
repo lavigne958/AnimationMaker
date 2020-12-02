@@ -24,11 +24,9 @@
 #include "transitionhandle.h"
 #include <QWidget>
 
-#include "widgets_global.h"
-
 class Transition;
 class KeyFrame;
-class WIDGETSSHARED_EXPORT TransitionHandleRight : public TransitionHandle
+class TransitionHandleRight : public TransitionHandle
 {
     Q_OBJECT
 public:

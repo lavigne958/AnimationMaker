@@ -22,9 +22,8 @@
 #define PLAYHEAD_H
 
 #include <QWidget>
-#include "widgets_global.h"
 
-class WIDGETSSHARED_EXPORT PlayHead : public QWidget
+class PlayHead : public QWidget
 {
     Q_OBJECT
 public:

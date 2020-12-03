@@ -52,6 +52,18 @@ make -j4
 
 Done! now you can find you newly built AnimationMaker under `/bin/` folder
 
+# Documentation
+
+Documentation can be built using `doxygen`. you can you build it with the following commands
+
+```
+mkdir doc
+cd doc
+doxygen ../Doxyfile
+```
+
+The generated output is an HTML documentation located at `doc/html/index.html`
+
 # AnimationMaker
 
 ![Image](AnimationMaker.png) 

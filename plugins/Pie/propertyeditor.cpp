@@ -21,9 +21,9 @@
 #include "propertyeditor.h"
 #include <Widgets/expander.h>
 #include <Widgets/flatbutton.h>
+#include <QLabel>
 #include "commands.h"
 #include <Widgets/animationscene.h>
-#include "QLabel"
 
 PropertyEditor::PropertyEditor()
 {

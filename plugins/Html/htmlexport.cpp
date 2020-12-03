@@ -23,6 +23,7 @@
 #include <Widgets/animationscene.h>
 #include <Widgets/bitmap.h>
 #include <Widgets/ellipse.h>
+#include <Widgets/rectangle.h>
 #include <Widgets/text.h>
 #include <Widgets/vectorgraphic.h>
 #include <QStatusBar>

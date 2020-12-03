@@ -27,7 +27,7 @@ _If you installed QtCreator you don't need to install manual packages you can al
 
 for debian/ubuntu/linuxmint
 ```
-sudo apt install qtbase5-dev build-essential
+sudo apt install qtbase5-dev libqt5svg5-dev build-essential
 ```
 
 for fedora/centos:

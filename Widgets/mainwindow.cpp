@@ -36,7 +36,6 @@
 #include "bitmap.h"
 #include "vectorgraphic.h"
 #include "keyframe.h"
-#include <QtTest/QTest>
 #include <QMessageBox>
 #include <QGraphicsSvgItem>
 #include <QTreeWidget>
@@ -893,7 +892,6 @@ void MainWindow::exportMovie()
     if(fileName.isEmpty())
         return;
 
-    fileName = "\"" + fileName + "\"";
     m_scene->clearSelection();
     m_view->setUpdatesEnabled(false);
     QGraphicsView *exportView = new QGraphicsView(m_scene);
@@ -922,7 +920,7 @@ void MainWindow::exportMovie()
 
         m_timeline->setPlayheadPosition(i * delay);
 
-        QTest::qSleep(delay);
+        this->thread()->msleep(delay);
         QCoreApplication::processEvents(QEventLoop::AllEvents, delay);
 
         QImage img = exportView->grab().toImage();
@@ -938,18 +936,28 @@ void MainWindow::exportMovie()
     if(fileName.endsWith(".gif"))
     {
         QString output = tmp.absolutePath() + "/temp.mp4";
+        QStringList args;
         statusBar()->showMessage("Creating temp movie");
-        runCommand("\"" + qApp->applicationDirPath() + "/ffmpeg\" -r " + QString::number(m_scene->fps()) + " -safe 0 -f concat -i list -b 4M -y " + output, tmp.absolutePath());
+        args << "-r" << QString::number(m_scene->fps()) << "-safe" << "0" << "-f" << "concat" << "-i" << "list" << "-b:v" << "4m" << "-y" << output;
+        runCommand(FFMPEG, args, tmp.absolutePath());
+
         statusBar()->showMessage("Creating palette file");
-        runCommand("\"" + qApp->applicationDirPath() + "/ffmpeg\" -i " + output + " -vf palettegen -y " + tmp.absolutePath() + "/temp.png", tmp.absolutePath());
+        args.clear();
+        args << "-i" << output << "-vf" << "palettegen" << "-y" << tmp.absolutePath() + "/temp.png";
+        runCommand(FFMPEG, args, tmp.absolutePath());
+
         statusBar()->showMessage("Converting temp movie");
-        runCommand("\"" + qApp->applicationDirPath() + "/ffmpeg\" -r " + QString::number(m_scene->fps()) + " -i " + output + " -i " + tmp.absolutePath() + "/temp.png -lavfi paletteuse -y " + fileName, tmp.absolutePath());
+        args.clear();
+        args << "-r" << QString::number(m_scene->fps()) << "-i" << output << "-i" << tmp.absolutePath() + "/temp.png" << "-lavfi" << "paleteuse" << "-y" << fileName;
+        runCommand(FFMPEG, args, tmp.absolutePath());
     }
     else
     {
         statusBar()->showMessage("Creating movie file");
-        qDebug() << "\"" + qApp->applicationDirPath() + "/ffmpeg\" -r " + QString::number(m_scene->fps()) + " -safe 0 -f concat -i list -b 4M -y " + fileName, tmp.absolutePath();
-        runCommand("\"" + qApp->applicationDirPath() + "/ffmpeg\" -r " + QString::number(m_scene->fps()) + " -safe 0 -f concat -i list -b 4M -y " + fileName, tmp.absolutePath());
+        QStringList args;
+        args << "-r" << QString::number(m_scene->fps()) << "-safe" << "0" << "-f" << "concat" << "-i" << "list" << "-b:v" << "4M" << "-y" << fileName;
+        qDebug() << "Run command:\n" << FFMPEG << args.join(" ");
+        runCommand(FFMPEG, args, tmp.absolutePath());
     }
 
     tmp.removeRecursively();
@@ -968,11 +976,22 @@ void MainWindow::pluginExport()
     }
 }
 
-void MainWindow::runCommand(QString cmd, QString path)
+void MainWindow::runCommand(QString command, QStringList args, QString path)
 {
     QProcess *proc = new QProcess();
+
+    // check first if 'command' is installed on the system and accessible via PATH
+    proc->setProgram(command);
+    proc->setArguments(QStringList("-version"));
+    proc->start();
+    proc->waitForFinished(1000);
+    if (proc->exitStatus() != QProcess::NormalExit) {
+        statusBar()->showMessage("missing program: \"" + command + "\", please install it first");
+        return;
+    }
+
     proc->setWorkingDirectory(path);
-    proc->start(cmd);
+    proc->start(command, args);
     proc->waitForFinished(-1);
     qDebug() << proc->readAllStandardOutput();
     qDebug() << proc->readAllStandardError();

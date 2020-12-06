@@ -10,6 +10,7 @@ very well, but it needs a refresh ;-)
 You have 2 options to build the software: using QtCreator, doing it manually
 
 ## Using QtCreator
+---
 
 First download ans setup [QtCreator](https://www.qt.io/product/development-tools).
 Once QtCreator is installed and running:
@@ -21,18 +22,28 @@ Once QtCreator is installed and running:
     - click on the build (or run) Icon on the bottom left (position might change)
 
 ## Manual build
+---
 First download Qt packages library and their respective development version using your package manager.
 
 _If you installed QtCreator you don't need to install manual packages you can already build the software manualy you already have all the tools._
 
-for debian/ubuntu/linuxmint
+### for debian/ubuntu/linuxmint
+
+Install necessary build tools:
 ```
-sudo apt install qtbase5-dev libqt5svg5-dev build-essential
+sudo apt install qtbase5-dev libqt5svg5-dev ffmpeg build-essential
 ```
 
-for fedora/centos:
+### for fedora/centos:
+
+**Warning:** fedora/centos users will need to install FFMpeg first.
+To do so you must install then enable some extra repositoty, then install it via yum/dnf.
+
+I do not provide the necessary command lines as they may vary and change over time.
+
+Install necessary build tools:
 ```
-sudo yum install make qt5-qtbase-devel qt5-qtsvg-devel
+sudo yum install make qt5-qtbase-devel qt5-qtsvg-devel ffmpeg
 ```
 
 Once all packages are installed you can start building the software

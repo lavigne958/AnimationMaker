@@ -64,10 +64,11 @@ protected:
     void readSettings();
     void writeFile(QString fileName);
     void fillTree();
-    void runCommand(QString cmd, QString path);
+    void runCommand(QString command, QStringList args, QString path);
     void addCheckboxes(QTreeWidgetItem *treeItem, AnimationItem *item);
     void addNewImage(AnimationScene::EditMode mode);
 
+    const QString FFMPEG = "ffmpeg";
     QString m_url;
     QString m_err;
     QSplitter *m_splitter;

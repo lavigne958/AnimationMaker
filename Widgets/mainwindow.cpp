@@ -643,7 +643,6 @@ void MainWindow::addNewImage(AnimationScene::EditMode mode)
         title = "Open SVG";
     }
 
-    qDebug() << "Filter: " << filter;
     if(!filter.isEmpty())
     {
         QFileDialog *dialog = new QFileDialog(this, Qt::Dialog);

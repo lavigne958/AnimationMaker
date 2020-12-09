@@ -624,21 +624,32 @@ void MainWindow::addNewImage(AnimationScene::EditMode mode)
     QString title;
     if(mode == AnimationScene::EditMode::ModeBitmap)
     {
-        filter = "Image Files (*.png *.jpeg *.jpg *.gif *.bmp);;All Files (*)";
+        QList<QByteArray> formatList = QImageReader::supportedImageFormats();
+        filter = "Image Files (";
+
+        for (auto format: formatList) {
+            // we have a dedicated button for svg images
+            if (format.contains("svg") == 0) {
+                filter += " *." + format;
+            }
+        }
+
+        filter += ")";
         title = "Open Bitmap";
     }
     else if(mode == AnimationScene::EditMode::ModeSvg)
     {
-        filter = "SVG Files (*.svg);;All Files (*)";
+        filter = "SVG Files (*.svg)";
         title = "Open SVG";
     }
+
+    qDebug() << "Filter: " << filter;
     if(!filter.isEmpty())
     {
-        QFileDialog *dialog = new QFileDialog();
-        dialog->setFileMode(QFileDialog::AnyFile);
+        QFileDialog *dialog = new QFileDialog(this, Qt::Dialog);
+        dialog->setFileMode(QFileDialog::ExistingFile);
         dialog->setNameFilter(filter);
         dialog->setWindowTitle(title);
-        dialog->setOption(QFileDialog::DontUseNativeDialog, true);
         dialog->setAcceptMode(QFileDialog::AcceptOpen);
         if(dialog->exec())
             fileName = dialog->selectedFiles().first();

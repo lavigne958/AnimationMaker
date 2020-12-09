@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    delete m_transitionEditor;
     delete m_scene;
     delete m_timeline;
     delete m_elementTree;

@@ -113,6 +113,13 @@ TransitionEditor::TransitionEditor()
     connect(m_type, SIGNAL(currentRowChanged(int)), this, SLOT(setCurve()));
 }
 
+TransitionEditor::~TransitionEditor()
+{
+    delete m_type;
+    delete m_easing;
+    delete m_curve;
+}
+
 void TransitionEditor::setKeyframe(KeyFrame *frame)
 {
     m_initializing = true;

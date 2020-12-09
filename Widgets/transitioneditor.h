@@ -32,6 +32,7 @@ class TransitionEditor : public QWidget
     Q_OBJECT
 public:
     TransitionEditor();
+    ~TransitionEditor();
 
     void setKeyframe(KeyFrame *frame);
     inline void setUndoStack(QUndoStack *stack) {m_undoStack = stack;}
